@@ -1,0 +1,1 @@
+Load data from [Simpsons Wikia](http://simpsons.wikia.com) to visualize how locations co-occur in The Simpsons.
