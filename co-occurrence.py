@@ -1,27 +1,8 @@
 import json
-from collections import defaultdict
 
+from utils import build_occurence_matrix
 
-co_occurrence = defaultdict(lambda: defaultdict(int))
-
-
-def clean_str(c):
-    return c.replace('[', '').replace(']', '').strip()
-
-
-with open('./output.json', 'r') as output:
-    dataset = json.load(output)
-    for ep, occ in dataset.items():
-        try:
-            characters = occ['Locations']
-        except KeyError:
-            characters = []
-
-        for char in characters:
-            for cmp_char in characters:
-                char = clean_str(char)
-                cmp_char = clean_str(cmp_char)
-                co_occurrence[char][cmp_char] += 1
+co_occurrence = build_occurence_matrix()
 
 nodes = sorted(co_occurrence,
                key=lambda k: len(co_occurrence[k]),
