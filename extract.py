@@ -18,9 +18,10 @@ with open('./simpsons_pages_current.xml') as html_doc:
         text = page.text
 
         text = text.split("==")
-        appearances = dict(zip(text[1::2], text[2::2]))
+        appearances_ = dict(zip(text[1::2], text[2::2]))
 
-        for k, v in appearances.items():
+        appearances = {}
+        for k, v in appearances_.items():
             appearances[k.strip()] = re.findall("\[\[.*\]\]", v)
 
         dataset[title.text] = appearances
