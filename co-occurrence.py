@@ -1,8 +1,8 @@
 import json
 
-from utils import build_occurence_matrix
+from utils import build_occurrence_matrix
 
-co_occurrence = build_occurence_matrix()
+co_occurrence = build_occurrence_matrix()
 
 nodes = sorted(co_occurrence,
                key=lambda k: len(co_occurrence[k]),
